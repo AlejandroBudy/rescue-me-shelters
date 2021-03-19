@@ -1,1 +1,1 @@
-# rescue-me-shelters
+# rescue-me-shelters project
