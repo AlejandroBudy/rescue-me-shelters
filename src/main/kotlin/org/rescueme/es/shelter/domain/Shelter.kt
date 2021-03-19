@@ -19,8 +19,9 @@ class Shelter {
     }
 
     companion object {
-        fun create(shelterId: ShelterId) =
+        fun create(shelterId: ShelterId) {
             apply(ShelterCreatedEvent(shelterId.asString(), ZonedDateTime.now()))
+        }
     }
 
 }

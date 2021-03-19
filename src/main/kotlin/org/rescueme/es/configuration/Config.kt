@@ -31,13 +31,13 @@ open class CqrsConfiguration {
 
     @Bean
     open fun aggregateFactory(): AggregateFactory<Shelter> =
-        SpringPrototypeAggregateFactory<Shelter>().also { it.setPrototypeBeanName("dog") }
+        SpringPrototypeAggregateFactory<Shelter>().also { it.setPrototypeBeanName("shelter") }
 
     @Bean
     open fun cache(): Cache = NoCache.INSTANCE
 
     @Bean
-    open fun dogAggregateRepository(eventStore: EventStore, cache: Cache): Repository<Shelter> =
+    open fun shelterAggregateRepository(eventStore: EventStore, cache: Cache): Repository<Shelter> =
         CachingEventSourcingRepository(aggregateFactory(), eventStore, cache)
 
 

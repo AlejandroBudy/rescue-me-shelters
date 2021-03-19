@@ -6,7 +6,7 @@ import org.rescueme.es.shelter.domain.create.ShelterCreator
 import org.springframework.stereotype.Component
 
 @Component
-class CreateShelterCommandHandler(private val creator: ShelterCreator) {
+open class CreateShelterCommandHandler(private val creator: ShelterCreator) {
 
     @CommandHandler
     fun on(command: CreateShelterCommand) {
