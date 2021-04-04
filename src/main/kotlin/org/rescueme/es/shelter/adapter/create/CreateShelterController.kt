@@ -14,7 +14,7 @@ class CreateShelterController(private val commandBus: CommandBus) {
     @PostMapping("/shelter")
     fun createShelter(@RequestBody shelter: CreateShelterRequest): ResponseEntity<Unit> {
         val shelterId = UUID.randomUUID().toString()
-        commandBus.dispatch(createCommand(shelterId))
+        commandBus.dispatch(shelter.createCommand(shelterId))
         return ResponseEntity.created(URI("/shelter/$shelterId")).build()
     }
 }

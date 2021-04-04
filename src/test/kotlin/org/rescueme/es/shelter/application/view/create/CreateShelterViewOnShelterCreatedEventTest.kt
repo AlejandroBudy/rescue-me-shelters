@@ -6,7 +6,9 @@ import io.mockk.mockk
 import io.mockk.verify
 import org.rescueme.es.shelter.domain.view.create.ShelterViewCreator
 import org.rescueme.es.shelter.utils.createShelterCreatedEvent
+import org.rescueme.es.shelter.utils.shelterDetails
 import org.rescueme.es.shelter.utils.shelterIdVO
+import org.rescueme.es.shelter.utils.shelterLocation
 
 class CreateShelterViewOnShelterCreatedEventTest : StringSpec({
 
@@ -16,11 +18,11 @@ class CreateShelterViewOnShelterCreatedEventTest : StringSpec({
     "Should create shelter view on event"{
         val event = createShelterCreatedEvent()
 
-        every { creator.invoke(shelterIdVO) } returns Unit
+        every { creator.invoke(shelterIdVO, shelterDetails, shelterLocation) } returns Unit
 
         handler.on(event)
 
-        verify(exactly = 1) { creator.invoke(shelterIdVO) }
+        verify(exactly = 1) { creator.invoke(shelterIdVO, shelterDetails, shelterLocation) }
 
     }
 
