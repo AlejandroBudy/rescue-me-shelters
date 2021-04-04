@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:file:~/Documents/rescue-me-shelter
+    url: jdbc:h2:file:~/Documents/rescue-me-shelter-2
     driver-class-name: org.h2.Driver
     username: sa
     password: ''

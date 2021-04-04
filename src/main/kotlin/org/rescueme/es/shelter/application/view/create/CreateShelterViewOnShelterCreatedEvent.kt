@@ -11,6 +11,10 @@ class CreateShelterViewOnShelterCreatedEvent(private val creator: ShelterViewCre
 
     @EventHandler
     fun on(event: ShelterCreatedEvent) {
-        creator(ShelterId.fromString(event.aggregateId))
+        creator(
+            shelterId = ShelterId.fromString(event.aggregateId),
+            details = event.details,
+            location = event.location
+        )
     }
 }

@@ -15,11 +15,11 @@ class CreateShelterCommandHandlerTest : StringSpec({
 
     "should invoke creator to create shelter"{
         val command = createShelterCommand()
-        every { creator.invoke(shelterIdVO) } returns Unit
+        every { creator.invoke(any(), any(), any()) } returns Unit
 
         commandHandler.on(command)
 
-        verify(exactly = 1) { creator.invoke(shelterIdVO) }
+        verify(exactly = 1) { creator.invoke(any(), any(), any()) }
 
     }
 })
